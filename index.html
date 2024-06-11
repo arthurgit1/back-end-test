@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Usuário</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+
+<div class="container">
+    <h2>Cadastro de Usuário</h2>
+    <form action="register.php" method="post">
+        <div class="form-group">
+            <label for="username">Username (5-30 caracteres alfanuméricos):</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password (5-15 caracteres):</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Nome (3-30 caracteres, apenas letras):</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Sobrenome (opcional, 3-30 caracteres, apenas letras):</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="form-group">
+            <label for="profileUrl">URL do Linkedin (opcional):</label>
+            <input type="url" id="profileUrl" name="profileUrl">
+        </div>
+        <div class="form-group">
+            <label for="bio">Bio (opcional, 3-30 caracteres, apenas letras):</label>
+            <input type="text" id="bio" name="bio">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gênero (opcional):</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Not Specified">Not Specified</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <a href="https://github.com/login/oauth/authorize?client_id=SEU_CLIENT_ID&scope=user" class="btn-github">Login com GitHub</a>
+        </div>
+
+        
+        <div class="form-group">
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

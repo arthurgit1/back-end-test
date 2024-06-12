@@ -4,7 +4,7 @@ session_start();
 // Configurações do GitHub
 $client_id = 'SEU_CLIENT_ID';
 $client_secret = 'SEU_CLIENT_SECRET';
-$redirect_uri = 'http://seu-dominio.com/github-callback.php';
+$redirect_uri = 'http://localhost/github-callback.php';
 
 if (isset($_GET['code'])) {
     $code = $_GET['code'];

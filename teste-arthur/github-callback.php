@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'db_connection.php';
 
 // Configurações do GitHub
 $client_id = 'SEU_CLIENT_ID';
@@ -44,17 +45,6 @@ if (isset($_GET['code'])) {
 
     $user_data = json_decode($response, true);
 
-    // Conectar ao banco de dados
-    $servername = "localhost";
-    $db_username = "seu_usuario";
-    $db_password = "sua_senha";
-    $dbname = "user_database";
-
-    $conn = new mysqli($servername, $db_username, $db_password, $dbname);
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
     // Verificar se o usuário já existe no banco de dados
     $username = $user_data['login'];
     $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
@@ -65,9 +55,9 @@ if (isset($_GET['code'])) {
     if ($stmt->num_rows == 0) {
         // Inserir novo usuário
         $name = $user_data['name'] ?? $username;
-        $profileImageUrl = $user_data['avatar_url'];
-        $stmt = $conn->prepare("INSERT INTO users (username, name, profileImageUrl) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $name, $profileImageUrl);
+        $profileUrl = $user_data['avatar_url'];
+        $stmt = $conn->prepare("INSERT INTO users (username, name, profileUrl) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $name, $profileUrl);
         $stmt->execute();
     }
 

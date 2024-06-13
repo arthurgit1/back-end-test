@@ -1,1 +1,0 @@
-Rodando o arquivo index.php que possui uma interface simples

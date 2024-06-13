@@ -3,8 +3,8 @@ session_start();
 include 'db_connection.php';
 
 // Configurações do GitHub
-$client_id = 'SEU_CLIENT_ID';
-$client_secret = 'SEU_CLIENT_SECRET';
+$client_id = 'Ov23liL2PdaCENgC1hgN';
+$client_secret = '80a45d276079934aec3bae86b64f003704267732';
 $redirect_uri = 'http://localhost/github-callback.php';
 
 if (isset($_GET['code'])) {
@@ -67,6 +67,10 @@ if (isset($_GET['code'])) {
     // Definir sessão do usuário
     $_SESSION['username'] = $username;
     header('Location: welcome.php');
+    exit;
+} else {
+    // Se não há código de autenticação, redirecionar para a página inicial
+    header('Location: index.php');
     exit;
 }
 ?>
